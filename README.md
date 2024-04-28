@@ -2,7 +2,7 @@
 
 This project was built to retrieve data from a clients API that uses offsets and limits params.
 
-# Functionality
+## Functionality
 
 Uses configuration file for client data, then:
 
@@ -11,15 +11,15 @@ Uses configuration file for client data, then:
 - Collates the refined data
 - Writes finilised data to directory
 
-# Modules:
+## Modules:
 
 - Requests
 - Json
 
-# Installation
+## Installation
 
 - Vanilla Python
 
-# Built With
+## Built With
 
 - Python
