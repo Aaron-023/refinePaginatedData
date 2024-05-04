@@ -1,25 +1,24 @@
-# Refine Paginated Data
+# Acquire / Refine / Process Paginated Data 
 
-This project was built to retrieve data from a clients API that uses offsets and limits params.
+This is a lightweight, refactored app that I previously wrote in Javascript. It acquires paginated data and then isolates the URLs stored within before writing that information to the directory in .json format. 
 
 ## Functionality
 
-Uses configuration file for client data, then:
+- Logging
+- Scheduling
+- CLI functionality: add, remove, run, list
+- API Error Handling
+- File Error Handling
+- Response Error Handling
 
-- Collates data from paginated requests
-- Refines the collated data
-- Collates the refined data
-- Writes finilised data to directory
-
-## Modules:
+## Libraries Used:
 
 - Requests
 - Json
-
-## Installation
-
-- Vanilla Python
+- Argparse
+- Scheduler
+- Time
 
 ## Built With
 
-- Python
+- Python 3.11.6
