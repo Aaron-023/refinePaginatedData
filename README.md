@@ -1,6 +1,6 @@
 # Acquire / Refine / Process Paginated Data 
 
-This is a lightweight, refactored app that I previously wrote in Javascript. It acquires paginated data and then isolates the URLs stored within before writing that information to the directory in .json format. 
+This is a lightweight, refactored app I previously wrote in Javascript, now written with object-oriented principles in Python. It acquires paginated data and then isolates the URLs stored within before writing that information to the directory in .json format. 
 
 ## Functionality
 
