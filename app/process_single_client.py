@@ -1,12 +1,11 @@
-
-from client import Client
-from client import logging
+from jobPostingFetcher import JobPostingFetcher
+from jobPostingFetcher import logging
 
 def main(task):
 
     client_name = task
 
-    client = Client(client_name)
+    client = JobPostingFetcher(client_name)
 
     paginated_data = client.refine_endpoint_data(client.get_endpoint_url())
     

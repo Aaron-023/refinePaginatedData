@@ -1,9 +1,13 @@
+from dotenv import load_dotenv
 import requests
 import json
 import os
 import logging
 
-class Client: 
+# Load enviroment variables
+load_dotenv()
+
+class JobPostingFetcher: 
     """
     The client class instantiates objects that are used to:
     1: Retrieve paginated offset data from an endpoint
@@ -12,11 +16,11 @@ class Client:
     """
     def __init__(self, name) -> None:
         self.name = name
-        self.base_url = '' # add value
-        self.postings = '' # add value
+        self.base_url = os.getenv('BASE_URL')
+        self.postings = '/postings?offset='
         self.offset = 0
-        self.payload_directory = '../payloads/'
-        self.logging_directory = '../logs/'
+        self.payload_directory = os.getenv('PAYLOAD_DIRECTORY')
+        self.logging_directory = os.getenv('LOGGING_DIRECTORY')
 
         os.makedirs(self.logging_directory, exist_ok=True)
 
@@ -30,6 +34,7 @@ class Client:
         self.logger = logging.getLogger(__name__)
 
     def __str__(self) -> str:
+        print(f"DEBUG: __str__() was called for {self.name}")
         return f'Type: Class. This class is used to create client instances'
 
     def get_endpoint_url(self) -> str:
@@ -98,9 +103,8 @@ class Client:
                 continue
 
             if r.status_code == 200: 
-                j = json.loads(r.text) #deserialise to a python string
-                jd = json.dumps(j) # serialise to a JSON formatted string
-                data_to_write.append(jd)
+                data_to_write.append(json.loads(r.text)) # Deserialize and append in one step
+
             else:
                 logging.warning(f'There was a server error when getting ad {url} for {self.name}')
                 continue
