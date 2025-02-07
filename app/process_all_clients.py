@@ -1,7 +1,12 @@
+from dotenv import load_dotenv
+import os
 import json
 import logging
 from jobPostingFetcher import JobPostingFetcher
 from filteredJobFetcher import FilteredJobFetcher
+
+# Load enviroment variables
+load_dotenv()
 
 def fetch_standard_jobs(client_name): 
     """Processing a single client using the appropriate class."""
@@ -27,8 +32,7 @@ def fetch_filtered_jobs(client_name, custom_fields):
             logging.warning(f'{client.custom_field_name} has 0 ads. Skipping...')   
 
 def main():
-    
-    with open('/Users/aaroncrawford/Documents/Work/AaronTech/SmartRecruiters/vault/credentials.json', 'r') as file:
+    with open(os.getenv('CREDENTIALS_JSON'), 'r') as file:
         all_client_credentials = json.load(file)
 
     """Process all clients"""
