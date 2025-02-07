@@ -2,7 +2,8 @@ import schedule
 import time
 
 def job(task):
-    schedule.every().monday.to().friday.at("07:15").do(task)
+    schedule.every().monday.to().friday.at("06:15").do(task)
+    schedule.every().monday.to().friday.at("14:15").do(task)
     schedule.every().monday.to().friday.at("19:15").do(task)
 
 def run_scheduler(task):
